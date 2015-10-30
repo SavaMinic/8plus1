@@ -14,6 +14,22 @@ public class FrogsManager : MonoBehaviour
 	[SerializeField]
 	public GoEaseType jumpEaseType;
 
+	public bool IsEnd
+	{
+		get
+		{
+			var pads = FindObjectOfType<LillyPads>().Pads;
+			// first 4 need to be frogs who are going left
+			// and the last 4 need to be frogs who are going right
+			for (int i = 0; i < 4; i++)
+			{
+				if (pads[i].frog == null || pads[i].frog.GoingRight) return false;
+				if (pads[8 - i].frog == null || !pads[8 - i].frog.GoingRight) return false;
+			}
+			return true;
+		}
+	}
+
 	public List<Frog> Frogs { get; private set; }
 
 	public bool IsPlaying { get; private set; }
@@ -35,8 +51,8 @@ public class FrogsManager : MonoBehaviour
 
 	public void NewGame()
 	{
-		var pads = FindObjectOfType<LillyPads>();
-		for (int i = 0; i < pads.Pads.Count; i++) pads.Pads[i].frog = null;
+		var pads = FindObjectOfType<LillyPads>().Pads;
+		for (int i = 0; i < pads.Count; i++) pads[i].frog = null;
 
 		// set them to correct positions
 		for (int i = 0; i < Frogs.Count; i++)
@@ -48,7 +64,10 @@ public class FrogsManager : MonoBehaviour
 
 	public void CheckEnd()
 	{
-		
+		if (IsEnd)
+		{
+			IsPlaying = false;
+		}
 	}
 
 }

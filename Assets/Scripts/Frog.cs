@@ -9,6 +9,9 @@ public class Frog : MonoBehaviour
 	private Animator frogAnimator;
 	private LillyPads pads;
 	private FrogsManager manager;
+	private GoTween jumpTween;
+
+	private static bool canClick = true;
 
 	void Awake()
 	{
@@ -28,6 +31,12 @@ public class Frog : MonoBehaviour
 		// don't need to change z
 		transform.position = (Vector2)pads.Pads[index].transform.position;
 		transform.rotation = Quaternion.Euler(0f, 0f, GoingRight ? 270f : 90f);
+
+		// stop tween if it's running
+		if (jumpTween != null && jumpTween.state == GoTweenState.Running)
+		{
+			jumpTween.complete();
+		}
 	}
 
 	public void SetIndex(int index)
@@ -39,6 +48,8 @@ public class Frog : MonoBehaviour
 
 	void OnMouseUpAsButton()
 	{
+		if (!canClick) return;
+
 		// try just one ahead
 		bool isMoved = TryToMove();
 		// if it can't, try to jump over him
@@ -62,14 +73,16 @@ public class Frog : MonoBehaviour
 		SetIndex(index);
 		var target = (Vector2) pads.Pads[index].transform.position;
 
-		var t = Go.to(transform, manager.jumpDuration, new GoTweenConfig().position(target).setEaseType(manager.jumpEaseType));
-		t.setOnBeginHandler(tween =>
+		jumpTween = Go.to(transform, manager.jumpDuration, new GoTweenConfig().position(target).setEaseType(manager.jumpEaseType));
+		jumpTween.setOnBeginHandler(tween =>
 		{
 			frogAnimator.speed = 1f;
+			canClick = false;
 		});
-		t.setOnCompleteHandler(tween =>
+		jumpTween.setOnCompleteHandler(tween =>
 		{
 			frogAnimator.speed = 0f;
+			canClick = true;
 		});
 	}
 }
