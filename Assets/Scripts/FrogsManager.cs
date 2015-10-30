@@ -8,6 +8,12 @@ public class FrogsManager : MonoBehaviour
 	[SerializeField]
 	protected LayerMask clickableLayers;
 
+	[SerializeField]
+	public float jumpDuration = 0.6f;
+
+	[SerializeField]
+	public GoEaseType jumpEaseType;
+
 	public List<Frog> Frogs { get; private set; }
 
 	void Awake()

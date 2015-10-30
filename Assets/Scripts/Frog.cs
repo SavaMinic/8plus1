@@ -8,6 +8,7 @@ public class Frog : MonoBehaviour
 
 	private Animator frogAnimator;
 	private LillyPads pads;
+	private FrogsManager manager;
 
 	void Awake()
 	{
@@ -15,6 +16,7 @@ public class Frog : MonoBehaviour
 		frogAnimator.speed = 0f;
 
 		pads = FindObjectOfType<LillyPads>();
+		manager = FindObjectOfType<FrogsManager>();
 	}
 
 	public void Initialize(int index)
@@ -58,6 +60,16 @@ public class Frog : MonoBehaviour
 	private void Move(int index)
 	{
 		SetIndex(index);
-		transform.position = (Vector2)pads.Pads[index].transform.position;
+		var target = (Vector2) pads.Pads[index].transform.position;
+
+		var t = Go.to(transform, manager.jumpDuration, new GoTweenConfig().position(target).setEaseType(manager.jumpEaseType));
+		t.setOnBeginHandler(tween =>
+		{
+			frogAnimator.speed = 1f;
+		});
+		t.setOnCompleteHandler(tween =>
+		{
+			frogAnimator.speed = 0f;
+		});
 	}
 }

@@ -2012,6 +2012,8 @@ MonoBehaviour:
   clickableLayers:
     serializedVersion: 2
     m_Bits: 256
+  jumpDuration: .600000024
+  jumpEaseType: 12
 --- !u!1 &2022683164
 GameObject:
   m_ObjectHideFlags: 0
