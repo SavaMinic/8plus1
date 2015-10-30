@@ -32,9 +32,9 @@ public class Frog : MonoBehaviour
 
 	public void SetIndex(int index)
 	{
-		if (CurrentIndex != -1) pads.Occupied[CurrentIndex] = false;
+		if (CurrentIndex != -1) pads.Pads[CurrentIndex].frog = null;
 		CurrentIndex = index;
-		pads.Occupied[CurrentIndex] = true;
+		pads.Pads[CurrentIndex].frog = this;
 	}
 
 	void OnMouseUpAsButton()
@@ -49,7 +49,7 @@ public class Frog : MonoBehaviour
 	{
 		int nextIndex = CurrentIndex + (GoingRight ? 1 : -1) * howMuch;
 		// check bounds
-		if (nextIndex >= 0 && nextIndex <=8 && !pads.Occupied[nextIndex])
+		if (nextIndex >= 0 && nextIndex <=8 && !pads.Pads[nextIndex].IsOccupied)
 		{
 			Move(nextIndex);
 			return true;

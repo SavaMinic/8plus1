@@ -16,6 +16,8 @@ public class FrogsManager : MonoBehaviour
 
 	public List<Frog> Frogs { get; private set; }
 
+	public bool IsPlaying { get; private set; }
+
 	void Awake()
 	{
 		Frogs = new List<Frog>();
@@ -34,13 +36,19 @@ public class FrogsManager : MonoBehaviour
 	public void NewGame()
 	{
 		var pads = FindObjectOfType<LillyPads>();
-		for (int i = 0; i < pads.Occupied.Length; i++) pads.Occupied[i] = false;
+		for (int i = 0; i < pads.Pads.Count; i++) pads.Pads[i].frog = null;
 
 		// set them to correct positions
 		for (int i = 0; i < Frogs.Count; i++)
 		{
 			Frogs[i].Initialize(i < 4 ? i : i + 1);
 		}
+		IsPlaying = true;
+	}
+
+	public void CheckEnd()
+	{
+		
 	}
 
 }

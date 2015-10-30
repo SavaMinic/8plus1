@@ -5,17 +5,17 @@ using System.Collections.Generic;
 public class LillyPads : MonoBehaviour
 {
 
-	public List<GameObject> Pads { get; private set; }
-	public bool[] Occupied { get; private set; }
+	public List<LillyPad> Pads { get; private set; }
 
 	void Awake()
 	{
-		Pads = new List<GameObject>();
+		Pads = new List<LillyPad>();
 		for (int i = 0; i < transform.childCount; i++)
 		{
-			Pads.Add(transform.GetChild(i).gameObject);
+			Pads.Add(transform.GetChild(i).gameObject.GetComponent<LillyPad>());
+			Pads[i].index = i;
+			Pads[i].frog = null;
 		}
-		Occupied = new bool[transform.childCount];
 	}
 
 }
