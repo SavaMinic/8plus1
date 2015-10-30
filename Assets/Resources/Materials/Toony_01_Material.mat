@@ -40,11 +40,11 @@ Material:
       data:
         first:
           name: _MainTexMoveSpeedU
-        second: 1.28571427
+        second: 0
       data:
         first:
           name: _MainTexMoveSpeedV
-        second: -1.21428561
+        second: .519999981
       data:
         first:
           name: _MainTexTile

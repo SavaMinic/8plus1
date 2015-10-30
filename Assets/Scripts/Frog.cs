@@ -3,12 +3,61 @@ using System.Collections;
 
 public class Frog : MonoBehaviour
 {
+	public bool GoingRight { get; private set; }
+	public int CurrentIndex { get; private set; }
 
 	private Animator frogAnimator;
+	private LillyPads pads;
 
 	void Awake()
 	{
 		frogAnimator = GetComponent<Animator>();
 		frogAnimator.speed = 0f;
+
+		pads = FindObjectOfType<LillyPads>();
+	}
+
+	public void Initialize(int index)
+	{
+		GoingRight = index < 4;
+		CurrentIndex = -1;
+		SetIndex(index);
+
+		// don't need to change z
+		transform.position = (Vector2)pads.Pads[index].transform.position;
+		transform.rotation = Quaternion.Euler(0f, 0f, GoingRight ? 270f : 90f);
+	}
+
+	public void SetIndex(int index)
+	{
+		if (CurrentIndex != -1) pads.Occupied[CurrentIndex] = false;
+		CurrentIndex = index;
+		pads.Occupied[CurrentIndex] = true;
+	}
+
+	void OnMouseUpAsButton()
+	{
+		// try just one ahead
+		bool isMoved = TryToMove();
+		// if it can't, try to jump over him
+		if (!isMoved) TryToMove(2);
+	}
+
+	private bool TryToMove(int howMuch = 1)
+	{
+		int nextIndex = CurrentIndex + (GoingRight ? 1 : -1) * howMuch;
+		// check bounds
+		if (nextIndex >= 0 && nextIndex <=8 && !pads.Occupied[nextIndex])
+		{
+			Move(nextIndex);
+			return true;
+		}
+		return false;
+	}
+
+	private void Move(int index)
+	{
+		SetIndex(index);
+		transform.position = (Vector2)pads.Pads[index].transform.position;
 	}
 }
