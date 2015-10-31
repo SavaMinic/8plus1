@@ -49,11 +49,12 @@ public class Frog : MonoBehaviour
 	void OnMouseUpAsButton()
 	{
 		if (!canClick) return;
-
 		// try just one ahead
-		bool isMoved = TryToMove();
 		// if it can't, try to jump over him
-		if (!isMoved) TryToMove(2);
+		if (TryToMove() || TryToMove(2))
+		{
+			manager.CheckEnd();
+		}
 	}
 
 	private bool TryToMove(int howMuch = 1)

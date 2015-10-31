@@ -14,6 +14,8 @@ public class FrogsManager : MonoBehaviour
 	[SerializeField]
 	public GoEaseType jumpEaseType;
 
+	public RectTransform finishPanel;
+
 	public bool IsEnd
 	{
 		get
@@ -60,6 +62,7 @@ public class FrogsManager : MonoBehaviour
 			Frogs[i].Initialize(i < 4 ? i : i + 1);
 		}
 		IsPlaying = true;
+		finishPanel.gameObject.SetActive(false);
 	}
 
 	public void CheckEnd()
@@ -67,6 +70,7 @@ public class FrogsManager : MonoBehaviour
 		if (IsEnd)
 		{
 			IsPlaying = false;
+			finishPanel.gameObject.SetActive(true);
 		}
 	}
 
