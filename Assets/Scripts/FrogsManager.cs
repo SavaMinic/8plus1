@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class FrogsManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class FrogsManager : MonoBehaviour
 	public GoEaseType jumpEaseType;
 
 	public RectTransform finishPanel;
+
+	public Text turnsLabel;
 
 	public bool IsEnd
 	{
@@ -35,6 +38,8 @@ public class FrogsManager : MonoBehaviour
 	public List<Frog> Frogs { get; private set; }
 
 	public bool IsPlaying { get; private set; }
+
+	private int turns;
 
 	void Awake()
 	{
@@ -63,6 +68,16 @@ public class FrogsManager : MonoBehaviour
 		}
 		IsPlaying = true;
 		finishPanel.gameObject.SetActive(false);
+
+		// refresh turns
+		turns = 0;
+		turnsLabel.text = "Potez: " + turns;
+	}
+
+	public void IncreaseTurn()
+	{
+		turns++;
+		turnsLabel.text = "Potez: " + turns;
 	}
 
 	public void CheckEnd()

@@ -53,6 +53,7 @@ public class Frog : MonoBehaviour
 		// if it can't, try to jump over him
 		if (TryToMove() || TryToMove(2))
 		{
+			manager.IncreaseTurn();
 			manager.CheckEnd();
 		}
 	}
