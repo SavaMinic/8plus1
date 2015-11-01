@@ -16,6 +16,7 @@ public class FrogsManager : MonoBehaviour
 	public GoEaseType jumpEaseType;
 
 	public RectTransform finishPanel;
+	public RectTransform helpMenuPanel;
 
 	public Text turnsLabel;
 
@@ -87,6 +88,11 @@ public class FrogsManager : MonoBehaviour
 			IsPlaying = false;
 			finishPanel.gameObject.SetActive(true);
 		}
+	}
+
+	public void ToggleHelpMenu(bool isActive = true)
+	{
+		helpMenuPanel.gameObject.SetActive(isActive);
 	}
 
 }
