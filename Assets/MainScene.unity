@@ -721,13 +721,13 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "<b>Autori: Jelena Mom\u010Dilovi\u0107, Gordana Cvetanovi\u0107 i Dragan
-    \nImplementirao: Sava Mini\u0107</b>\n\nZadatak je da se u najmanjem broju poteza
-    prebace zelene \u017Eabice na mesta crvenih i obrnuto. \r\nPri tome se mora pridr\u017Eavati
-    slede\u0107ih pravila:\r\n\r\n1. \u017Dabica se mo\u017Ee staviti samo na slobodno
-    polje direktnim pomeranjem ili \r\npreskakanjem samo jedne \u017Eabice\r\n2. Nijedna
-    \u017Eabica se ne sme kretati unazad i\r\n3. Igra zapo\u010Dinje preme\u0161tanjem
-    zelene \u017Eabice.\r\n\r\nNije obavezna naizmeni\u010Dna igra zelenim i crvenim
-    \u017Eabicama.\n3. \u0418\u0433\u0440\u0430 \u0437\u0430\u043F\u043E\u0447\u0438\u045A\u0435
+    Golubovi\u0107\nImplementirao: Sava Mini\u0107</b>\n\nZadatak je da se u najmanjem
+    broju poteza prebace zelene \u017Eabice na mesta crvenih i obrnuto. \r\nPri tome
+    se mora pridr\u017Eavati slede\u0107ih pravila:\r\n\r\n1. \u017Dabica se mo\u017Ee
+    staviti samo na slobodno polje direktnim pomeranjem ili \r\npreskakanjem samo
+    jedne \u017Eabice\r\n2. Nijedna \u017Eabica se ne sme kretati unazad i\r\n3. Igra
+    zapo\u010Dinje preme\u0161tanjem zelene \u017Eabice.\r\n\r\nNije obavezna naizmeni\u010Dna
+    igra zelenim i crvenim \u017Eabicama.\n3. \u0418\u0433\u0440\u0430 \u0437\u0430\u043F\u043E\u0447\u0438\u045A\u0435
     \u043F\u0440\u0435\u043C\u0435\u0448\u0442\u0430\u045A\u0435\u043C \u0431\u0435\u043B\u0435
     \u0444\u0438\u0433\u0443\u0440\u0435.\n\n\u041D\u0438\u0458\u0435 \u043E\u0431\u0430\u0432\u0435\u0437\u043D\u0430
     \u043D\u0430\u0438\u0437\u043C\u0435\u043D\u0438\u0447\u043D\u0430 \u0438\u0433\u0440\u0430
@@ -2065,7 +2065,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1037090018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.200000003, z: 5}
+  m_LocalPosition: {x: 0, y: .400000006, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 74515964}
@@ -2102,6 +2102,7 @@ GameObject:
   - 92: {fileID: 1091607177}
   - 124: {fileID: 1091607176}
   - 81: {fileID: 1091607175}
+  - 82: {fileID: 1091607180}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2176,6 +2177,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!82 &1091607180
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1091607174}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 39e8b4d9760f6624e986e78989e76b72, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1106202562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2983,6 +3053,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1995329272}
   - 114: {fileID: 1995329273}
+  - 82: {fileID: 1995329274}
   m_Layer: 0
   m_Name: Frogs
   m_TagString: Untagged
@@ -2997,7 +3068,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1995329271}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.200000003, z: 2}
+  m_LocalPosition: {x: 0, y: .400000006, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 296904373}
@@ -3029,6 +3100,75 @@ MonoBehaviour:
   finishPanel: {fileID: 432973981}
   helpMenuPanel: {fileID: 308774754}
   turnsLabel: {fileID: 296566965}
+--- !u!82 &1995329274
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1995329271}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 90dcd8d406decc74d8e36954903d7bfa, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &2022683164
 GameObject:
   m_ObjectHideFlags: 0

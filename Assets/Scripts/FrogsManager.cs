@@ -40,10 +40,13 @@ public class FrogsManager : MonoBehaviour
 
 	public bool IsPlaying { get; private set; }
 
+	private AudioSource frogSound;
+
 	private int turns;
 
 	void Awake()
 	{
+		frogSound = GetComponent<AudioSource>();
 		Frogs = new List<Frog>();
 		for (int i = 0; i < transform.childCount; i++)
 		{
@@ -77,6 +80,7 @@ public class FrogsManager : MonoBehaviour
 
 	public void IncreaseTurn()
 	{
+		frogSound.Play(); 
 		turns++;
 		turnsLabel.text = "Potez: " + turns;
 	}
